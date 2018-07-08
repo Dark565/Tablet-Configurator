@@ -18,17 +18,12 @@ int main(int argc, char** argv) {
 
     Device d = t.getFirst(STYLUS);
 
-    Array<int,4> area;
-    try {
-        area = d.getArea();
-    }
-    catch(std::string& s) {
-        std::cout << '\n' << s << '\n';
-    }
+    d.resetDefault();
 
-    for(uint32_t i = 0; i < 4; i++) {
-        std::cout << area[i] << '\n';
-    }
+    ql::Display display; ql::Monitor monitor;
+    display.getMonitor(0,monitor);
 
-    d.setArea({0,0,1000,1000});
+    d.mapToOutput(monitor);
 }
+
+    

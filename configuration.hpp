@@ -8,6 +8,7 @@
 
 #define T_AREA_FLAG         "area"
 #define T_RESET_AREA_FLAG   "ResetArea"
+#define T_MAPTOOUTPUT       "MapToOutput"
 
 #define T_OUTPUT_IDS        "id:"
 #define T_OUTPUT_TPS        "type:"

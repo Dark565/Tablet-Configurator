@@ -13,8 +13,8 @@ struct Device {
 
     Array<int, 4> getArea();
     void setArea(const Array<int, 4>&);
-    void setDefafaultArea();
-    void mapToOutput();
+    void resetDefault();
+    void mapToOutput(const ql::Monitor&);
 
     friend class Tablet;
 };
