@@ -30,10 +30,5 @@ int main(int argc, char** argv) {
         std::cout << area[i] << '\n';
     }
 
-    ql::Display dis;
-
-    ql::Monitor mon;
-    dis.getMonitor(0,mon);
-
-    std::cout << '\n' << mon.name;
+    d.setArea({0,0,1000,1000});
 }

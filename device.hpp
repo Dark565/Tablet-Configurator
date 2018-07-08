@@ -12,7 +12,7 @@ struct Device {
     public:
 
     Array<int, 4> getArea();
-    void setArea(const Array<int, 4>& area);
+    void setArea(const Array<int, 4>&);
     void setDefafaultArea();
     void mapToOutput();
 

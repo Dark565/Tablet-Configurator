@@ -5,7 +5,7 @@ target=tconf
 ql_dir = QL/
 ql_repo = "https://github.com/Dark565/Qer-Library"
 
-CCFlags=-std=c++17 -I$(ql_dir)headers/
+CCFlags=-std=c++14 -I$(ql_dir)headers/
 LinkerFlags=-lX11 -lXrandr
 
 cppfiles=$(wildcard *.cpp)
