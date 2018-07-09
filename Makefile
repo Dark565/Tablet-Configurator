@@ -1,6 +1,6 @@
 CC=g++
 
-target=tconf
+target=tablet
 
 ql_dir = QL/
 ql_repo = "https://github.com/Dark565/Qer-Library"
@@ -16,7 +16,13 @@ ql_source=$(ql_graphics)/Display
 
 ql_objects=ql-display.o
 
-all: modules build
+ifeq ($(wildcard $(ql_dir)),)
+all: modules
+	$(MAKE) build
+else
+all: build
+endif
+
 
 $(objects):
 	$(CC) -c -o $@ $(patsubst %.o, %.cpp, $@) $(CCFlags)
@@ -28,7 +34,7 @@ build: $(objects) $(ql_objects)
 	$(CC) -o $(target) $(objects) $(ql_objects) $(LinkerFlags)
 
 clean:
-	rm -rf *.o
+	rm -rf *.o $(target)
 
 clean_modules:
 	rm -rf $(ql_dir)
@@ -40,8 +46,6 @@ uninstall:
 	rm -f $(prefix)/usr/bin/$(target)
 
 modules:
-ifeq ($(wildcard $(ql_dir)),)
 	git clone $(ql_repo) $(ql_dir)
-endif
 
 .phony: modules build clean clean_modules install uninstall
