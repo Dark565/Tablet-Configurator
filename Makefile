@@ -11,7 +11,7 @@ LinkerFlags=-lX11 -lXrandr
 cppfiles=$(wildcard *.cpp)
 objects=$(patsubst %.cpp, %.o,$(cppfiles))
 
-ql_graphics=$(ql_dir)source/QL/Interface/Graphics
+ql_graphics=$(ql_dir)source/QL/Graphics
 ql_source=$(ql_graphics)/Display
 
 ql_objects=ql-display.o
