@@ -12,7 +12,6 @@ cppfiles=$(wildcard *.cpp)
 objects=$(patsubst %.cpp, %.o,$(cppfiles))
 
 ql_graphics=$(ql_dir)source/QL/Graphics
-ql_source=$(ql_graphics)/Display
 
 ql_objects=ql-display.o
 
@@ -27,7 +26,7 @@ endif
 $(objects):
 	$(CC) -c -o $@ $(patsubst %.o, %.cpp, $@) $(CCFlags)
 
-ql-display.o: $(ql_source)/display.cpp
+ql-display.o: $(ql_graphics)/display.cpp
 	$(CC) -c -o $@ $< $(CCFlags)
 
 build: $(objects) $(ql_objects)

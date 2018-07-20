@@ -19,10 +19,10 @@
 "\n\
 X11 graphics tablet configuration program\n\
 \n\
-Usage: 'tablet x0-x1 y0-y1'\n\
+Usage: 'tablet x0-x1 y0-y1 monitor_index'\n\
 Where you can also use '%' after x/y value to get percent from the whole width.\n\
 \n\
-Example: 'tablet 25%-75% 25%-75%' will set your tablet area to the middle of screen.\n\n"
+Example: 'tablet 25%-75% 25%-75% 0' will set your tablet area to the middle of screen mapped to monitor 0.\n\n"
 
 int main(int argc, char** argv) {
 
