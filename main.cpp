@@ -14,7 +14,8 @@
 
 #include <QL/Graphics/Display/display.hpp>
 
-#define P_VERSION "1.0"
+#define P_VERSION "v.1.0"
+
 #define P_HELP \
 "\n\
 X11 graphics tablet configuration program\n\
@@ -28,7 +29,7 @@ int main(int argc, char** argv) {
 
     if(argc > 1) {
         if(!strcmp(argv[1],"--version") || !strcmp(argv[1],"-v")) {
-            std::cout << P_VERSION << '\n';
+            std::cout << P_VERSION << ' ' << __DATE__ << ' ' << __TIME__ << '\n';
             return 0;
         } else if(!strcmp(argv[1],"--help") || !strcmp(argv[1],"-h")) {
             std::cout << P_HELP;
