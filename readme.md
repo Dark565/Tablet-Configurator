@@ -1,14 +1,14 @@
 <h1>QL-Based X11 tablet configuration program</h1>
 
 <b>Installation:</b>
-If you want to install this program, compile it using: `make`.
-You can pass additional argument `QL_METHOD=LINKED` for make, to compile program using default dynamic liblaries' link method in link time.
+<br>If you want to install this program, compile it using: `make`.
+You can pass additional argument `QL_METHOD=LINKED` for make, to compile program using default dynamic liblaries' link method.
 
 After this step, write `make install` with root permissions to install it into `/usr/bin/` directory.
 
 
 <b>Usage:</b>
-`tablet x0%-x1% y0%-y1% monitor_index
+<br>`tablet x0%-x1% y0%-y1% monitor_index`
 
 Where x and y is width and height.
 After line, you pass second coordinate parameter, to set range.
