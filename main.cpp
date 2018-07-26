@@ -15,8 +15,6 @@
 #include <QL/Graphics/Display/display.hpp>
 #include <QL/Definitions/libs.hpp>
 
-#include <map>
-
 #if defined(__QL_LIBRARY_LINK)
     #define P_LIB_LOAD "t. Linking modules"
 #elif defined(__QL_LIBRARY_LOAD)
