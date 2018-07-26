@@ -18,7 +18,7 @@ ql_objects=ql-display.o
 
 ql_flags:=
 
-ifeq ($(QL_LINK),LINK)
+ifeq ($(QL_TYPE),LINKED)
 	ql_flags:=-DQL_LIB_LINK
 	LinkerFlags:=-lX11 -lXrandr
 else
