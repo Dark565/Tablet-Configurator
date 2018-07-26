@@ -2,7 +2,7 @@
 
 <b>Installation:</b>
 <br>If you want to install this program, compile it using: `make`.
-You can pass additional argument `QL_METHOD=LINKED` for make, to compile program using default dynamic liblaries' link method.
+You can pass additional argument `QL_TYPE=LINKED` for make, to compile program using default dynamic liblaries' link method.
 
 After this step, write `make install` with root permissions to install it into `/usr/bin/` directory.
 
