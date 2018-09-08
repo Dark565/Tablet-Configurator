@@ -9,7 +9,7 @@
 #include <iostream>
 
 
-Array<int, 4> Device::getArea() {
+ql::Array<int, 4> Device::getArea() {
     char id[4];
     snprintf(id,4,"%i",ID);
 
@@ -18,7 +18,7 @@ Array<int, 4> Device::getArea() {
     FILE* p = popen(entry.c_str(), "r");
     if(p) {
 
-        Array<int, 4> ar;
+        ql::Array<int, 4> ar;
         for(uint32_t i = 0; i < 4; i++) {
             ar[i] = file::txt_to_number(p);
         }
@@ -32,7 +32,7 @@ Array<int, 4> Device::getArea() {
 
 }
 
-void Device::setArea(const Array<int, 4>& ar) {
+void Device::setArea(const ql::Array<int, 4>& ar) {
     char id[4];
     snprintf(id,4,"%i",ID);
 

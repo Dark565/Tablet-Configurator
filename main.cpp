@@ -9,11 +9,11 @@
 #include <iostream>
 
 #include "tablet.hpp"
-#include "array.hpp"
 #include "memory.hpp"
 
 #include <QL/Graphics/Display/display.hpp>
 #include <QL/Definitions/libs.hpp>
+#include <QL/Definitions/Objects/array.hpp>
 
 #if defined(__QL_LIBRARY_LINK)
     #define P_LIB_LOAD "t. Linking modules"
@@ -54,13 +54,13 @@ int main(int argc, char** argv) {
                 Tablet tablet;
                 Device t_device = tablet.getFirst(STYLUS);
 
-                Array<int, 4> area;
+                ql::Array<int, 4> area;
 
                 t_device.resetDefault();
                 t_device.mapToOutput(monitor);
                 area = t_device.getArea();
 
-                Array<int, 4> n_area(0);
+                ql::Array<int, 4> n_area(0);
 
                 for(uint32_t i = 0; i < 2; i++) {
                     const char* txt = argv[i+1];

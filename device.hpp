@@ -1,5 +1,5 @@
 #include <string>
-#include "array.hpp"
+#include "QL/Definitions/Objects/array.hpp"
 
 #include <QL/Graphics/Display/display.hpp>
 
@@ -11,8 +11,8 @@ struct Device {
 
     public:
 
-    Array<int, 4> getArea();
-    void setArea(const Array<int, 4>&);
+    ql::Array<int, 4> getArea();
+    void setArea(const ql::Array<int, 4>&);
     void resetDefault();
     void mapToOutput(const ql::Monitor&);
 
