@@ -5,14 +5,14 @@ target=tablet
 ql_dir = QL
 ql_repo = "https://github.com/Dark565/Qer-Library"
 
-CCFlags=-std=c++14 -I$(ql_dir)headers/
+CCFlags=-std=c++14 -I$(ql_dir)/headers/
 LinkerFlags:=
 
 cppfiles=$(wildcard *.cpp)
 objects=$(subst main.o,,$(patsubst %.cpp, %.o,$(cppfiles)))
 
-ql_graphics=$(ql_dir)source/QL/Graphics
-ql_system=$(ql_dir)source/QL/System
+ql_graphics=$(ql_dir)/source/QL/Graphics
+ql_system=$(ql_dir)/source/QL/System
 
 ql_objects=ql-display.o
 
