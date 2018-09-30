@@ -2,7 +2,7 @@ CC=g++
 
 target=tablet
 
-ql_dir = QL/
+ql_dir = QL
 ql_repo = "https://github.com/Dark565/Qer-Library"
 
 CCFlags=-std=c++14 -I$(ql_dir)headers/

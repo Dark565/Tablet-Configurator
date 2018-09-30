@@ -41,7 +41,7 @@ void Device::setArea(const ql::Array<int, 4>& ar) {
     for(uint32_t i = 0; i < 4; i++) {
         char s[6];
 
-        snprintf(s,6,"%i",ar.x[i]);
+        snprintf(s,6,"%i",ar[i]);
 
         entry += s; entry += ' ';
     }
