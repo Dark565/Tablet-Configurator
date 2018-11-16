@@ -8,13 +8,13 @@
 #include "tablet.hpp"
 #include "memory.hpp"
 
-#include <QL/Graphics/Display/display.hpp>
-#include <QL/Definitions/libs.hpp>
-#include <QL/Definitions/Objects/array.hpp>
+#include <EWL/Graphics/Display/display.hpp>
+#include <EWL/Definitions/libs.hpp>
+#include <EWL/Definitions/Objects/array.hpp>
 
-#if defined(__QL_LIBRARY_LINK)
+#if defined(__EWL_LIBRARY_LINK)
     #define P_LIB_LOAD "t. Linking modules"
-#elif defined(__QL_LIBRARY_LOAD)
+#elif defined(__EWL_LIBRARY_LOAD)
     #define P_LIB_LOAD "t. Loading modules"
 #endif
 
@@ -40,8 +40,8 @@ int main(int argc, char** argv) {
             return 0;
         } else if(argc > 3) {
 
-            if(ql::Display::init()) {
-                ql::Display display; ql::Monitor monitor;
+            if(ewl::Display::init()) {
+                ewl::Display display; ewl::Monitor monitor;
 
                 int n = atoi(argv[3]);
 
@@ -51,13 +51,13 @@ int main(int argc, char** argv) {
                 Tablet tablet;
                 Device t_device = tablet.getFirst(STYLUS);
 
-                ql::Array<int, 4> area;
+                ewl::Array<int, 4> area;
 
                 t_device.resetDefault();
                 t_device.mapToOutput(monitor);
                 area = t_device.getArea();
 
-                ql::Array<int, 4> n_area(0);
+                ewl::Array<int, 4> n_area(0);
 
                 for(uint32_t i = 0; i < 2; i++) {
                     const char* txt = argv[i+1];

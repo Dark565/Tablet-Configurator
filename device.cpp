@@ -9,7 +9,7 @@
 #include <iostream>
 
 
-ql::Array<int, 4> Device::getArea() {
+ewl::Array<int, 4> Device::getArea() {
     char id[4];
     snprintf(id,4,"%i",ID);
 
@@ -18,7 +18,7 @@ ql::Array<int, 4> Device::getArea() {
     FILE* p = popen(entry.c_str(), "r");
     if(p) {
 
-        ql::Array<int, 4> ar;
+        ewl::Array<int, 4> ar;
         for(uint32_t i = 0; i < 4; i++) {
             ar[i] = file::txt_to_number(p);
         }
@@ -32,7 +32,7 @@ ql::Array<int, 4> Device::getArea() {
 
 }
 
-void Device::setArea(const ql::Array<int, 4>& ar) {
+void Device::setArea(const ewl::Array<int, 4>& ar) {
     char id[4];
     snprintf(id,4,"%i",ID);
 
@@ -55,7 +55,7 @@ void Device::setArea(const ql::Array<int, 4>& ar) {
     }
 }
 
-void Device::mapToOutput(const ql::Monitor& m) {
+void Device::mapToOutput(const ewl::Monitor& m) {
     char id[4];
     snprintf(id,4,"%i",ID);
 

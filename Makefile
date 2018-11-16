@@ -2,31 +2,31 @@ CC=g++
 
 target=tablet
 
-ql_dir = QL
-ql_repo = "https://github.com/Dark565/Qer-Library.git"
+ewl_dir = EWL
+ewl_repo = "https://github.com/Dark565/EWL.git"
 
-CCFlags=-std=c++14 -I$(ql_dir)/headers/
+CCFlags=-std=c++14 -I$(ewl_dir)/headers/
 LinkerFlags:=
 
 cppfiles=$(wildcard *.cpp)
 objects=$(subst main.o,,$(patsubst %.cpp, %.o,$(cppfiles)))
 
-ql_graphics=$(ql_dir)/source/QL/Graphics
-ql_system=$(ql_dir)/source/QL/System
+ewl_graphics=$(ewl_dir)/source/EWL/Graphics
+ewl_system=$(ewl_dir)/source/EWL/System
 
-ql_objects=ql-display.o
+ewl_objects=ewl-display.o
 
-ql_flags:=
+ewl_flags:=
 
-ifeq ($(QL_TYPE),LINKED)
-	ql_flags:=-DQL_LIB_LINK
+ifeq ($(EWL_TYPE),LINKED)
+	ewl_flags:=-DEWL_LIB_LINK
 	LinkerFlags:=-lX11 -lXrandr
 else
-	ql_objects+= ql-library.o ql-module_dynlibs.o
+	ewl_objects+= ewl-library.o ewl-global_dynlibs.o
 	LinkerFlags:=-ldl
 endif
 
-ifeq ($(wildcard $(ql_dir)),)
+ifeq ($(wildcard $(ewl_dir)),)
 all: modules
 	$(MAKE) build
 else
@@ -34,31 +34,29 @@ all: build
 endif
 
 
-
-
 $(objects):
 	$(CC) -c -o $@ $(patsubst %.o, %.cpp, $@) $(CCFlags)
 
 main.o: main.cpp
-	$(CC) -c -o $@ $< $(CCFlags) $(ql_flags)
+	$(CC) -c -o $@ $< $(CCFlags) $(ewl_flags)
 
-ql-display.o: $(ql_graphics)/display.cpp
-	$(CC) -c -o $@ $< $(CCFlags) $(ql_flags)
+ewl-display.o: $(ewl_graphics)/display.cpp
+	$(CC) -c -o $@ $< $(CCFlags) $(ewl_flags)
 
-ql-library.o: $(ql_system)/library.cpp
-	$(CC) -c -o $@ $< $(CCFlags) $(ql_flags)
+ewl-library.o: $(ewl_system)/library.cpp
+	$(CC) -c -o $@ $< $(CCFlags) $(ewl_flags)
 
-ql-module_dynlibs.o: $(ql_system)/module_dynlibs.cpp
-	$(CC) -c -o $@ $< $(CCFlags) $(ql_flags)
+ewl-global_dynlibs.o: $(ewl_system)/global_dynlibs.cpp
+	$(CC) -c -o $@ $< $(CCFlags) $(ewl_flags)
 
-build: main.o $(objects) $(ql_objects)
-	$(CC) -o $(target) $(objects) $(ql_objects) main.o $(LinkerFlags)
+build: main.o $(objects) $(ewl_objects)
+	$(CC) -o $(target) $(objects) $(ewl_objects) main.o $(LinkerFlags)
 
 clean:
 	rm -rf *.o $(target)
 
 clean_modules:
-	rm -rf $(ql_dir)
+	rm -rf $(ewl_dir)
 
 install:
 	install $(target) $(prefix)/usr/bin/
@@ -67,6 +65,6 @@ uninstall:
 	rm -f $(prefix)/usr/bin/$(target)
 
 modules:
-	git clone $(ql_repo) $(ql_dir)
+	git clone $(ewl_repo) $(ewl_dir)
 
 .phony: modules build clean clean_modules install uninstall

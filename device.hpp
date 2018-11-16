@@ -1,7 +1,7 @@
 #include <string>
-#include "QL/Definitions/Objects/array.hpp"
+#include "EWL/Definitions/Objects/array.hpp"
 
-#include <QL/Graphics/Display/display.hpp>
+#include <EWL/Graphics/Display/display.hpp>
 
 struct Device {
     protected:
@@ -11,10 +11,10 @@ struct Device {
 
     public:
 
-    ql::Array<int, 4> getArea();
-    void setArea(const ql::Array<int, 4>&);
+    ewl::Array<int, 4> getArea();
+    void setArea(const ewl::Array<int, 4>&);
     void resetDefault();
-    void mapToOutput(const ql::Monitor&);
+    void mapToOutput(const ewl::Monitor&);
 
     friend class Tablet;
 };
